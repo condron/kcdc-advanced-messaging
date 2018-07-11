@@ -21,9 +21,9 @@ namespace Bobs.Burgers.Tests
             return 0;
         }
        public void tickets_increment() {
-           var t1= new Ticket();
+           var t1= new Shift.Ticket();
            if(t1.TicketId != 1) throw new Exception("tickets don't increment");
-           var t2= new Ticket();
+           var t2= new Shift.Ticket();
            if(t2.TicketId != 2) throw new Exception("tickets don't increment");
 
        }
