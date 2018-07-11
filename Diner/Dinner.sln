@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bobs.Burgers", "bobsburgers
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bobs.Burgers.Tests", "bobsburgres.Tests\Bobs.Burgers.Tests.csproj", "{0B4E1584-900D-4C0A-A113-24DC3374D41A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Message.Burger", "Message.Burger\Message.Burger.csproj", "{4D512D42-B1B3-42E4-8C80-454A371AC8F7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{0B4E1584-900D-4C0A-A113-24DC3374D41A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0B4E1584-900D-4C0A-A113-24DC3374D41A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0B4E1584-900D-4C0A-A113-24DC3374D41A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D512D42-B1B3-42E4-8C80-454A371AC8F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D512D42-B1B3-42E4-8C80-454A371AC8F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D512D42-B1B3-42E4-8C80-454A371AC8F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D512D42-B1B3-42E4-8C80-454A371AC8F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
