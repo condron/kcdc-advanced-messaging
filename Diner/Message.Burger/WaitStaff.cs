@@ -7,40 +7,30 @@ using System.Threading.Tasks;
 namespace Message.Burger
 {
     public class WaitStaff:
-        IHandle<CustomerArrived>,
-        IHandle<FoodRequested>,
-        IHandle<OrderUp> {
+        IHandle<OrderMsgs.CustomerArrived>,
+        IHandle<OrderMsgs.FoodRequested>,
+        IHandle<OrderMsgs.OrderUp> {
 
         private readonly IPublish _bus;
 
         public WaitStaff(IPublish bus) {
             _bus = bus;
         }
-        public void Handle(CustomerArrived msg) {
+        public void Handle(OrderMsgs.CustomerArrived msg) {
             //seat customer
-            _bus.Publish(new CustomerSeated());
+            _bus.Publish(new OrderMsgs.CustomerSeated());
         }
 
-        public void Handle(FoodRequested msg) {
+        public void Handle(OrderMsgs.FoodRequested msg) {
             //take order
-            _bus.Publish(new OrderIn());
+            _bus.Publish(new OrderMsgs.OrderIn());
         }
 
-        public void Handle(OrderUp msg) {
+        public void Handle(OrderMsgs.OrderUp msg) {
             //deliver food
-            _bus.Publish(new OrderDelivered());
+            _bus.Publish(new OrderMsgs.OrderDelivered());
         }
     }
 
-    public class OrderDelivered : Message { }
 
-    public class OrderIn : Message { }
-
-    public class CustomerSeated : Message { }
-
-    public class OrderUp : Message { }
-
-    public class FoodRequested : Message { }
-
-    public class CustomerArrived : Message { }
 }

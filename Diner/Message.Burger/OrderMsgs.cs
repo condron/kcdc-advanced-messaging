@@ -8,6 +8,7 @@ namespace Message.Burger
 {
     public class OrderMsgs
     {
+        //cashier
         public class OrderPaid : Message { }
 
         public class OrderTotaled : Message { }
@@ -15,5 +16,17 @@ namespace Message.Burger
         public class PaymentTendered:Message { }
 
         public class CompletedOrder:Message { }
+        //waitstaff
+        public class OrderDelivered : Message { }
+
+        public class OrderIn : Message { }
+
+        public class CustomerSeated : Message { }
+
+        public class OrderUp : Message { }
+
+        public class FoodRequested : Message { }
+
+        public class CustomerArrived : Message { }
     }
 }

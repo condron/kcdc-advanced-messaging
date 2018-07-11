@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,14 +6,6 @@ using Xunit;
 
 namespace Message.Burger.Tests
 {
-    public class TestBus:
-        IPublish
-    {
-        public List<Message> Received = new List<Message>();
-        public void Publish(Message message) {
-            Received.Add(message);
-        }
-    }
     public class CashierTests
     {
         //todo: add more test cases for message and state variations
