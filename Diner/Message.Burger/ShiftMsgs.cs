@@ -9,8 +9,8 @@ namespace Message.Burger
 {
     public class ShiftMsgs
     {
-        public class EndOfShift:Message{}
-        public class ShiftTake:Message
+        public class EndOfShift:ReactiveDomain.Messaging.Message{}
+        public class ShiftTake:ReactiveDomain.Messaging.Message
         {
             public readonly decimal Take;
 

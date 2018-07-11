@@ -4,9 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Message.Burger {
-    public interface IPublish
+namespace Message.Burger
+{
+    public class Bootstrap
     {
-        void Publish(Message message);
+        public void SetupDayShift() {
+
+        }
+        public void Run(){}
     }
 }

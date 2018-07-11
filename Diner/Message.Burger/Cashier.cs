@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using ReactiveDomain.Messaging.Bus;
 
 namespace Message.Burger {
     public class Cashier:
@@ -6,13 +7,13 @@ namespace Message.Burger {
         IHandle<OrderMsgs.PaymentTendered>,
         IHandle<ShiftMsgs.EndOfShift>
     {
-        private readonly IPublish _bus;
+        private readonly IBus _bus;
         private decimal _till;
         //todo: use value types here
         //ticketId, total
         private readonly Dictionary<int,int> _tickets = new Dictionary<int, int>();
 
-        public Cashier(IPublish bus) {
+        public Cashier(IBus bus) {
             _bus = bus;
         }
 

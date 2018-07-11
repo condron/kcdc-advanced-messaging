@@ -1,13 +1,12 @@
-﻿using System;
+﻿
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using ReactiveDomain.Messaging;
+
 
 namespace Message.Burger {
     public class OrderMsgs {
         //cashier
-        public class OrderPaid : Message {
+        public class OrderPaid : ReactiveDomain.Messaging.Message {
             public readonly int TicketNumber;
 
             public OrderPaid(
@@ -16,8 +15,7 @@ namespace Message.Burger {
             }
         }
 
-        public class OrderTotaled : Message
-        {
+        public class OrderTotaled : ReactiveDomain.Messaging.Message {
             public readonly int TicketId;
             public readonly int Total;
 
@@ -32,7 +30,7 @@ namespace Message.Burger {
         public enum PaymentType {
             Cash
         }
-        public class PaymentTendered : Message {
+        public class PaymentTendered : ReactiveDomain.Messaging.Message {
             public readonly int TicketNumber;
             public readonly PaymentType Type;
             public readonly int Amount;
@@ -46,7 +44,7 @@ namespace Message.Burger {
                 Type = type;
             }
         }
-        public class ChangeReturned : Message {
+        public class ChangeReturned : ReactiveDomain.Messaging.Message {
             public readonly int Amount;
             public readonly int TicketNumber;
             public ChangeReturned(
@@ -56,7 +54,7 @@ namespace Message.Burger {
                 TicketNumber = ticketNumber;
             }
         }
-        public class PaymentRejected : Message {
+        public class PaymentRejected : ReactiveDomain.Messaging.Message {
             public readonly string Reason;
 
             public PaymentRejected(string reason) {
@@ -64,7 +62,7 @@ namespace Message.Burger {
             }
         }
 
-        public class CompletedOrder : Message {
+        public class CompletedOrder : ReactiveDomain.Messaging.Message {
             public readonly int TicketId;
             public readonly List<string> MenuItems;
 
@@ -76,19 +74,19 @@ namespace Message.Burger {
             }
         }
         //waitstaff
-        public class OrderDelivered : Message { }
+        public class OrderDelivered : ReactiveDomain.Messaging.Message { }
 
-        public class OrderIn : Message { }
+        public class OrderIn : ReactiveDomain.Messaging.Message { }
 
-        public class CustomerSeated : Message { }
+        public class CustomerSeated : ReactiveDomain.Messaging.Message { }
 
-        public class CustomerAskedToWait : Message { }
+        public class CustomerAskedToWait : ReactiveDomain.Messaging.Message { }
 
-        public class OrderUp : Message { }
+        public class OrderUp : ReactiveDomain.Messaging.Message { }
 
-        public class FoodRequested : Message { }
+        public class FoodRequested : ReactiveDomain.Messaging.Message { }
 
-        public class CustomerArrived : Message {
+        public class CustomerArrived : ReactiveDomain.Messaging.Message {
             public readonly int PartySize;
             public readonly int TicketNumber;
 
@@ -100,22 +98,21 @@ namespace Message.Burger {
             }
         }
 
-        public class TicketNotFound : Message {
+        public class TicketNotFound : ReactiveDomain.Messaging.Message {
             public readonly int TicketNumber;
             public TicketNotFound(int ticketNumber) {
                 TicketNumber = ticketNumber;
             }
         }
 
-        public class InsufficientFunds : Message
-        {
+        public class InsufficientFunds : ReactiveDomain.Messaging.Message {
             public readonly int TicketNumber;
             public readonly int AmountPresented;
             public readonly int AmountDue;
 
             public InsufficientFunds(
-                int ticketNumber, 
-                int amountPresented, 
+                int ticketNumber,
+                int amountPresented,
                 int amountDue) {
                 TicketNumber = ticketNumber;
                 AmountPresented = amountPresented;

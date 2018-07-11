@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using ReactiveDomain.Messaging.Bus;
 
 namespace Message.Burger
 {
@@ -9,10 +10,10 @@ namespace Message.Burger
         IHandle<OrderMsgs.OrderUp>,
         IHandle<OrderMsgs.OrderPaid> {
 
-        private readonly IPublish _bus;
+        private readonly IBus _bus;
         private readonly List<Table> _section;
 
-        public WaitStaff(IPublish bus,
+        public WaitStaff(IBus bus,
                          List<Table> section) {
             _bus = bus;
             _section = section;
