@@ -9,7 +9,7 @@ namespace Message.Burger.Tests
         public void can_seat_customer() {
             var bus = new TestBus();
             var waitStaff = new WaitStaff(bus,new List<Table>{new Table(5)});
-            waitStaff.Handle(new OrderMsgs.CustomerArrived(4));
+            waitStaff.Handle(new OrderMsgs.CustomerArrived(4,1));
             Assert.Single(bus.Received);
             Assert.IsType<OrderMsgs.CustomerSeated>(bus.Received[0]);
         }
@@ -18,12 +18,12 @@ namespace Message.Burger.Tests
         public void can_ask_customers_to_wait() {
             var bus = new TestBus();
             var waitStaff = new WaitStaff(bus,new List<Table>{new Table(5)});
-            waitStaff.Handle(new OrderMsgs.CustomerArrived(4));
+            waitStaff.Handle(new OrderMsgs.CustomerArrived(4,1));
             Assert.Single(bus.Received);
             Assert.IsType<OrderMsgs.CustomerSeated>(bus.Received[0]);
 
             bus.Received.Clear();
-            waitStaff.Handle(new OrderMsgs.CustomerArrived(4));
+            waitStaff.Handle(new OrderMsgs.CustomerArrived(4,1));
             Assert.Single(bus.Received);
             Assert.IsType<OrderMsgs.CustomerAskedToWait>(bus.Received[0]);
 

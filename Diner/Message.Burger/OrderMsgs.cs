@@ -9,11 +9,27 @@ namespace Message.Burger
     public class OrderMsgs
     {
         //cashier
-        public class OrderPaid : Message { }
+        public class OrderPaid : Message
+        {
+            public readonly int TicketNumber;
+
+            public OrderPaid(
+                int ticketNumber) {
+                TicketNumber = ticketNumber;
+            }
+        }
 
         public class OrderTotaled : Message { }
 
-        public class PaymentTendered:Message { }
+        public class PaymentTendered:Message
+        {
+            public readonly int TicketNumber;
+
+            public PaymentTendered(
+                int ticketNumber) {
+                TicketNumber = ticketNumber;
+            }
+        }
 
         public class CompletedOrder:Message { }
         //waitstaff
@@ -32,10 +48,13 @@ namespace Message.Burger
         public class CustomerArrived : Message
         {
             public readonly int PartySize;
+            public readonly int TicketNumber;
 
             public CustomerArrived(
-                int partySize) {
+                int partySize,
+                int ticketNumber) {
                 PartySize = partySize;
+                TicketNumber = ticketNumber;
             }
         }
     }

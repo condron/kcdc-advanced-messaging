@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Message.Burger
 {
     public class WaitStaff:
         IHandle<OrderMsgs.CustomerArrived>,
         IHandle<OrderMsgs.FoodRequested>,
-        IHandle<OrderMsgs.OrderUp> {
+        IHandle<OrderMsgs.OrderUp>,
+        IHandle<OrderMsgs.OrderPaid> {
 
         private readonly IPublish _bus;
         private readonly List<Table> _section;
@@ -38,6 +36,11 @@ namespace Message.Burger
         public void Handle(OrderMsgs.OrderUp msg) {
             //deliver food
             _bus.Publish(new OrderMsgs.OrderDelivered());
+        }
+
+        public void Handle(OrderMsgs.OrderPaid msg) {
+            //customer has left, clear table
+            throw new NotImplementedException();
         }
     }
 
