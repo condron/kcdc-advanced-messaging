@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using ReactiveDomain.Messaging.Bus;
 
-namespace Message.Burger
-{
-    public class WaitStaff:
+namespace Message.Burger {
+    public class WaitStaff :
         IHandle<OrderMsgs.CustomerArrived>,
         IHandle<OrderMsgs.FoodRequested>,
         IHandle<OrderMsgs.OrderUp>,
@@ -21,12 +20,12 @@ namespace Message.Burger
         public void Handle(OrderMsgs.CustomerArrived party) {
             //seat customer
             foreach (var table in _section) {
-                if(table.TrySeat(party.PartySize)) {
-                    _bus.Publish(new OrderMsgs.CustomerSeated());
+                if (table.TrySeat(party.PartySize)) {
+                    _bus.Publish(new OrderMsgs.CustomerSeated(party.PartySize, party.TicketNumber));
                     return;
                 }
             }
-            _bus.Publish(new OrderMsgs.CustomerAskedToWait());
+            _bus.Publish(new OrderMsgs.CustomerAskedToWait(party.PartySize, party.TicketNumber));
         }
 
         public void Handle(OrderMsgs.FoodRequested msg) {

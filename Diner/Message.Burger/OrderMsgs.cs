@@ -78,9 +78,31 @@ namespace Message.Burger {
 
         public class OrderIn : ReactiveDomain.Messaging.Message { }
 
-        public class CustomerSeated : ReactiveDomain.Messaging.Message { }
+        public class CustomerSeated : ReactiveDomain.Messaging.Message
+        {
+            public readonly int PartySize;
+            public readonly int TicketNumber;
 
-        public class CustomerAskedToWait : ReactiveDomain.Messaging.Message { }
+            public CustomerSeated(
+                int partySize,
+                int ticketNumber) {
+                PartySize = partySize;
+                TicketNumber = ticketNumber;
+            }
+        }
+
+        public class CustomerAskedToWait : ReactiveDomain.Messaging.Message
+        {
+            public readonly int PartySize;
+            public readonly int TicketNumber;
+
+            public CustomerAskedToWait(
+                int partySize,
+                int ticketNumber) {
+                PartySize = partySize;
+                TicketNumber = ticketNumber;
+            }
+        }
 
         public class OrderUp : ReactiveDomain.Messaging.Message { }
 
