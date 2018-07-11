@@ -18,10 +18,12 @@ namespace Message.Burger
             MainBus.Subscribe<OrderMsgs.PaymentTendered>(cashier);
             MainBus.Subscribe<ShiftMsgs.EndOfShift>(cashier);
             var waiter = new WaitStaff(MainBus, new List<Table>{new Table(4), new Table(5)});
-            MainBus.Subscribe<OrderMsgs.CustomerArrived>(waiter);
+            MainBus.Subscribe<OrderMsgs.CustomerAssigned>(waiter);
             MainBus.Subscribe<OrderMsgs.FoodRequested>(waiter);
             MainBus.Subscribe<OrderMsgs.OrderUp>(waiter);
             MainBus.Subscribe<OrderMsgs.OrderPaid>(waiter);
+            var dayShift = new DayShiftProcess(MainBus);
+            MainBus.Subscribe<OrderMsgs.CustomerArrived>(dayShift);
         }
     }
 }

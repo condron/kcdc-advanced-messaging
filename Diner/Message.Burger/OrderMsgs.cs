@@ -119,6 +119,17 @@ namespace Message.Burger {
                 TicketNumber = ticketNumber;
             }
         }
+        public class CustomerAssigned : ReactiveDomain.Messaging.Message {
+            public readonly int PartySize;
+            public readonly int TicketNumber;
+
+            public CustomerAssigned(
+                int partySize,
+                int ticketNumber) {
+                PartySize = partySize;
+                TicketNumber = ticketNumber;
+            }
+        }
 
         public class TicketNotFound : ReactiveDomain.Messaging.Message {
             public readonly int TicketNumber;

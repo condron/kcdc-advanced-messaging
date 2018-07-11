@@ -23,11 +23,13 @@ namespace Message.Burger.Tests
                 .Subscribe(new AdHocHandler<ReactiveDomain.Messaging.Message>(
                     msg => messages.Add(msg)));
             dinner.MainBus.Publish(new OrderMsgs.CustomerArrived(partySize,ticketId));
-            Assert.Equal(2,messages.Count);
+            Assert.Equal(3,messages.Count);
             //n.b. bus is currently sync calls through all registered handlers
             //this places the triggering event after the resulting events in the message list
-            var arrived = messages[1] as OrderMsgs.CustomerArrived;
+            var arrived = messages[2] as OrderMsgs.CustomerArrived;
             Assert.NotNull(arrived);
+            var assigned = messages[1] as OrderMsgs.CustomerAssigned;
+            Assert.NotNull(assigned);
             var seated = messages[0] as OrderMsgs.CustomerSeated;
             Assert.NotNull(seated);
             Assert.Equal(partySize, seated.PartySize);

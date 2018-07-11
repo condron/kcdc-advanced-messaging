@@ -4,7 +4,7 @@ using ReactiveDomain.Messaging.Bus;
 
 namespace Message.Burger {
     public class WaitStaff :
-        IHandle<OrderMsgs.CustomerArrived>,
+        IHandle<OrderMsgs.CustomerAssigned>,
         IHandle<OrderMsgs.FoodRequested>,
         IHandle<OrderMsgs.OrderUp>,
         IHandle<OrderMsgs.OrderPaid> {
@@ -17,7 +17,7 @@ namespace Message.Burger {
             _bus = bus;
             _section = section;
         }
-        public void Handle(OrderMsgs.CustomerArrived party) {
+        public void Handle(OrderMsgs.CustomerAssigned party) {
             //seat customer
             foreach (var table in _section) {
                 if (table.TrySeat(party.PartySize)) {
