@@ -7,8 +7,7 @@ namespace Message.Burger {
         IHandle<ShiftMsgs.EndOfShift>
     {
         private readonly IPublish _bus;
-        //todo: add end of shift till reconciliation
-        private int _till;
+        private decimal _till;
         //todo: use value types here
         //ticketId, total
         private readonly Dictionary<int,int> _tickets = new Dictionary<int, int>();

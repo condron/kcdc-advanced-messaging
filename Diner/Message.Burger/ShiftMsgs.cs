@@ -12,9 +12,9 @@ namespace Message.Burger
         public class EndOfShift:Message{}
         public class ShiftTake:Message
         {
-            public readonly int Take;
+            public readonly decimal Take;
 
-            public ShiftTake(int take) {
+            public ShiftTake(decimal take) {
                 Take = take;
             }
         }
