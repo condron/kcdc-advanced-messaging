@@ -22,18 +22,18 @@ namespace Message.Burger.Tests
         public void can_total_order() {
             var bus = new TestBus();
             var cashier = new Cashier(bus);
-            cashier.Handle(new CompletedOrder());
+            cashier.Handle(new OrderMsgs.CompletedOrder());
             Assert.Single(bus.Received);
-            Assert.IsType<OrderTotaled>(bus.Received[0]);
+            Assert.IsType<OrderMsgs.OrderTotaled>(bus.Received[0]);
             //todo: check sum logic
         }
         [Fact]
         public void can_accept_payment() {
             var bus = new TestBus();
             var cashier = new Cashier(bus);
-            cashier.Handle(new PaymentTendered());
+            cashier.Handle(new OrderMsgs.PaymentTendered());
             Assert.Single(bus.Received);
-            Assert.IsType<OrderPaid>(bus.Received[0]);
+            Assert.IsType<OrderMsgs.OrderPaid>(bus.Received[0]);
             //todo: check payment processing logic
         }
     }

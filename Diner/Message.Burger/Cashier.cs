@@ -1,29 +1,23 @@
 ﻿namespace Message.Burger {
     public class Cashier:
-        IHandle<CompletedOrder>,
-        IHandle<PaymentTendered>{
+        IHandle<OrderMsgs.CompletedOrder>,
+        IHandle<OrderMsgs.PaymentTendered>{
         private readonly IPublish _bus;
 
         public Cashier(IPublish bus) {
             _bus = bus;
         }
 
-        public void Handle(CompletedOrder msg) {
+        public void Handle(OrderMsgs.CompletedOrder msg) {
             //todo: total order
-            _bus.Publish(new OrderTotaled());
+            _bus.Publish(new OrderMsgs.OrderTotaled());
         }
 
-        public void Handle(PaymentTendered msg) {
+        public void Handle(OrderMsgs.PaymentTendered msg) {
             //todo: process payment
-            _bus.Publish(new OrderPaid());
+            _bus.Publish(new OrderMsgs.OrderPaid());
         }
     }
 
-    public class OrderPaid : Message { }
-
-    public class OrderTotaled : Message { }
-
-    public class PaymentTendered:Message { }
-
-    public class CompletedOrder:Message { }
+  
 }
