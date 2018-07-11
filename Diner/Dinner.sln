@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2035
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bobs.Burgers", "bobsburgers\Bobs.Burgers.csproj", "{141E071C-2199-4006-8D7C-744CBCAC187E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bobs.Burgers.Tests", "bobsburgres.Tests\Bobs.Burgers.Tests.csproj", "{0B4E1584-900D-4C0A-A113-24DC3374D41A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{141E071C-2199-4006-8D7C-744CBCAC187E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{141E071C-2199-4006-8D7C-744CBCAC187E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{141E071C-2199-4006-8D7C-744CBCAC187E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{141E071C-2199-4006-8D7C-744CBCAC187E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B4E1584-900D-4C0A-A113-24DC3374D41A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B4E1584-900D-4C0A-A113-24DC3374D41A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B4E1584-900D-4C0A-A113-24DC3374D41A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B4E1584-900D-4C0A-A113-24DC3374D41A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F199164E-B954-4C03-9394-9D3A6AB78FA5}
+	EndGlobalSection
+EndGlobal

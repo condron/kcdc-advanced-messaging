@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <ApplicationIcon />
+    <OutputType>Exe</OutputType>
+    <StartupObject>Bobs.Burgers.Tests.TicketTests</StartupObject>
+    </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\bobsburgers\Bobs.Burgers.csproj" />
+  </ItemGroup>
+
+</Project>
