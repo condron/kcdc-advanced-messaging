@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bobs.Burgers.Tests", "bobsb
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Message.Burger", "Message.Burger\Message.Burger.csproj", "{4D512D42-B1B3-42E4-8C80-454A371AC8F7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Message.Burger.Tests", "Message.Burger.Tests\Message.Burger.Tests.csproj", "{CEDE29E3-C0B6-499B-B92B-7DE1C77CB98C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{4D512D42-B1B3-42E4-8C80-454A371AC8F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4D512D42-B1B3-42E4-8C80-454A371AC8F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4D512D42-B1B3-42E4-8C80-454A371AC8F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEDE29E3-C0B6-499B-B92B-7DE1C77CB98C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEDE29E3-C0B6-499B-B92B-7DE1C77CB98C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEDE29E3-C0B6-499B-B92B-7DE1C77CB98C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEDE29E3-C0B6-499B-B92B-7DE1C77CB98C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
