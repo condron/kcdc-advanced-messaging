@@ -23,10 +23,20 @@ namespace Message.Burger
 
         public class CustomerSeated : Message { }
 
+        public class CustomerAskedToWait:Message{}
+
         public class OrderUp : Message { }
 
         public class FoodRequested : Message { }
 
-        public class CustomerArrived : Message { }
+        public class CustomerArrived : Message
+        {
+            public readonly int PartySize;
+
+            public CustomerArrived(
+                int partySize) {
+                PartySize = partySize;
+            }
+        }
     }
 }

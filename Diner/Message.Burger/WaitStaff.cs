@@ -12,13 +12,22 @@ namespace Message.Burger
         IHandle<OrderMsgs.OrderUp> {
 
         private readonly IPublish _bus;
+        private readonly List<Table> _section;
 
-        public WaitStaff(IPublish bus) {
+        public WaitStaff(IPublish bus,
+                         List<Table> section) {
             _bus = bus;
+            _section = section;
         }
-        public void Handle(OrderMsgs.CustomerArrived msg) {
+        public void Handle(OrderMsgs.CustomerArrived party) {
             //seat customer
-            _bus.Publish(new OrderMsgs.CustomerSeated());
+            foreach (var table in _section) {
+                if(table.TrySeat(party.PartySize)) {
+                    _bus.Publish(new OrderMsgs.CustomerSeated());
+                    return;
+                }
+            }
+            _bus.Publish(new OrderMsgs.CustomerAskedToWait());
         }
 
         public void Handle(OrderMsgs.FoodRequested msg) {
