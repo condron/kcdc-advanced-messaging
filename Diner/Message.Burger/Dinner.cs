@@ -24,6 +24,8 @@ namespace Message.Burger
             MainBus.Subscribe<OrderMsgs.OrderPaid>(waiter);
             var dayShift = new DayShiftProcess(MainBus);
             MainBus.Subscribe<OrderMsgs.CustomerArrived>(dayShift);
+            MainBus.Subscribe<OrderMsgs.OrderDelivered>(dayShift);
+
         }
     }
 }

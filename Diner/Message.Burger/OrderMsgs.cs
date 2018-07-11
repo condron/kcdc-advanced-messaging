@@ -74,7 +74,18 @@ namespace Message.Burger {
             }
         }
         //waitstaff
-        public class OrderDelivered : ReactiveDomain.Messaging.Message { }
+        public class OrderDelivered : ReactiveDomain.Messaging.Message
+        {
+            public readonly int TicketId;
+            public readonly List<string> MenuItems;
+
+            public OrderDelivered(
+                int ticketId,
+                List<string> menuItems) {
+                TicketId = ticketId;
+                MenuItems = menuItems;
+            }
+        }
 
         public class OrderIn : ReactiveDomain.Messaging.Message { }
 

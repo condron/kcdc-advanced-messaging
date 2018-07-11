@@ -35,7 +35,9 @@ namespace Message.Burger {
 
         public void Handle(OrderMsgs.OrderUp msg) {
             //deliver food
-            _bus.Publish(new OrderMsgs.OrderDelivered());
+            //todo:add items to orderUp
+            //todo: add ticketId to orderUp
+            _bus.Publish(new OrderMsgs.OrderDelivered(1,new List<string>{"fries"}));
         }
 
         public void Handle(OrderMsgs.OrderPaid msg) {
