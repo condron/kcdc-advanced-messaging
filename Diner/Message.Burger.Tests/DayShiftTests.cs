@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using ReactiveDomain.Messaging.Bus;
+using ReactiveUI;
 using Xunit;
 
 namespace Message.Burger.Tests
@@ -31,14 +33,20 @@ namespace Message.Burger.Tests
             Assert.Equal(partySize, seated.PartySize);
             Assert.Equal(ticketId, seated.TicketNumber);
         }
-        //[Fact]
-        //public void can_get_shift_take() {
-        //    var dinner = new Dinner();
-        //    dinner.SetupDayShift();
-        //    for (int i = 0; i < 10; i++) {
-                
-        //    }
-        //}
+        [Fact]
+        public void can_get_shift_take() {
+            var dinner = new Dinner();
+            dinner.SetupDayShift();
+            for (int i = 0; i < 10; i++) {
+                dinner.MainBus.Publish(new OrderMsgs.CompletedOrder(i,new List<string>{"fries"}));
+                dinner.MainBus.Publish(new OrderMsgs.PaymentTendered(i,OrderMsgs.PaymentType.Cash,1));
+            }
+
+            decimal take = 0;
+            dinner.MainBus.Subscribe(new AdHocHandler<ShiftMsgs.ShiftTake>(msg =>  take = msg.Take));
+            dinner.MainBus.Publish(new ShiftMsgs.EndOfShift());
+            Assert.Equal(10,take);
+        }
 
     }
 }

@@ -39,8 +39,8 @@ namespace Message.Burger {
         }
 
         public void Handle(OrderMsgs.OrderPaid msg) {
-            //customer has left, clear table
-            throw new NotImplementedException();
+            //todo: customer has left, clear table
+            
         }
     }
 
